@@ -9,8 +9,9 @@ var tbody = d3.select("tbody");
 
 // Console.log the alien data from data.js
 console.log(UFOData);
-function UFOTable() {
-    UFOData.forEach((UFOReport) => {
+function UFOTable(jsonData) {
+    tbody.html("");
+    jsonData.forEach((UFOReport) => {
         var row = tbody.append("tr");
         //transform the data json object format into a list
         var entries = Object.entries(UFOReport);
@@ -23,12 +24,17 @@ function UFOTable() {
         });
     });
 }
-UFOTable()
+UFOTable(UFOData)
 
+
+// Select the button
+var button = d3.select("#filter-btn");
 //Select the form
-// Create event handlers for clicking the button or pressing the enter key
-//button.on("click", runEnter);
+button.on("click", runEnter);
 var form = d3.select("form");
+
+// Create event handlers for clicking the button or pressing the enter key
+button.on("click", runEnter);
 form.on("submit",runEnter);
 // Create the function to run for both events
 function runEnter() {
@@ -38,20 +44,19 @@ function runEnter() {
 
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
 
-    console.log(inputElement);
+    var selectedData = UFOData.filter(sighting => sighting.datetime === inputValue);
 
-    function selectDatetime(sighting) {
+    //return this as new json data to update table 
+    console.log(selectedData);
+    UFOTable(selectedData);
 
-        return sighting.datetime === inputElement;
-
-    }
-
-    var UFOSighting = UFOData.filter(selectDatetime)
-
-    console.log(UFOSighting)
 
 
 
 }
+
+
 
