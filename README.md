@@ -1,3 +1,16 @@
+# UFO-LEVEL-1
+
+For filtering data by date. Please fill out the Filter Search form for the Enter a Date section for the month of January 2010 using the following format: m/d(d)/yyyy. After entering the data you can press enter or use the Filter Table button to view updated table. 
+
+To reset data table click the Reset Table button
+
+# UFO-LEVEL-2
+
+For filtering for data, city, state, country, or shape... please enter data as shown in the table. After entering the search criteria click Filter Table button to view updated table. 
+
+To reset data table click the Reset Table button
+
+
 # JavaScript Homework - JavaScript and DOM Manipulation
 
 ## Background
